@@ -12,6 +12,7 @@ const App = () => {
       return res.json()
     }).then((data)=>{
       setWeatherData({...data});
+      setQuery("");
     }).catch(error=>{
         console.log(error);
     });
@@ -20,7 +21,7 @@ const App = () => {
     <div>
         {/* Do not remove the main div */}
         <form onSubmit={(e)=>searchWeather(e)}>
-          <input className="search" type="text" placeholder="search weather" onChange={(e)=>setQuery(e.target.value)}/>
+          <input className="search" type="text" placeholder="search weather" value={query} onChange={(e)=>setQuery(e.target.value)}/>
           <button type="submit">search</button>
         </form>
         {
